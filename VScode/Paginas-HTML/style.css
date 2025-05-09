@@ -3,10 +3,7 @@
     margin: 0%;
     padding: 0%;
 }
-body{
-    
-}
- 
+
 .imagem{
     width: 100%;
     position: absolute;
@@ -33,6 +30,33 @@ body{
     width: 30%;
     margin-top: 10%;
     border-radius: 5%;
-    background-color: aqua;
+    background-color: rgb(176, 224, 243);
 
 }
+
+  .formulario{
+    margin-left: 10px; 
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px; 
+     background-color: #f8f9fa;
+  }
+  .formulario-container {
+    display: flex;
+    gap: 1px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 1px;
+  }
+
+  .form-container {
+    border: 1px solid #007bff;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #f8f9fa;
+    width: 300px;
+  }
+
+  .form-group {
+    margin-bottom: 10px;
+  }
