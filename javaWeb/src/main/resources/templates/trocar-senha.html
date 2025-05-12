@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Trocar Senha</title>
+</head>
+<body>
+    <h2>Trocar Senha</h2>
+    <form th:action="@{/trocar-senha}" method="post">
+        <label>Usuário:</label>
+        <input type="text" name="username"/><br/>
+        <label>Nova Senha:</label>
+        <input type="password" name="novaSenha"/><br/>
+        <button type="submit">Atualizar</button>
+    </form>
+    <p th:text="${mensagem}"></p>
+</body>
+</html>
