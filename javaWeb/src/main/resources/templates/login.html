@@ -1,17 +1,42 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link css e bootstrap  -->
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
     <title>Login</title>
 </head>
-<body>
-    <h2>Login</h2>
-    <form th:action="@{/login}" method="post">
-        <label>Usuário:</label>
-        <input type="text" name="username"/><br/>
-        <label>Senha:</label>
-        <input type="password" name="password"/><br/>
-        <button type="submit">Entrar</button>
-    </form>
-</body>
+    <body>
+        <header>
+
+        </header>
+        <main class="centralizar">
+            <section class="borde">
+                <form class="login" th:action="@{/login}" method="post">
+                    <div>
+                      <h2>Viptech Teleinformatica</h2>
+                      <h3>Login</h3>
+                   </div>
+                    <div class="mb-3 mt-3">
+                        <label for="usuario" class="form-label" >Usuário:</label>
+                        <input type="text" class="form-control" name="username" style="border: 1px solid black;">
+                    </div>
+                    <div class="mb-3">
+                        <label for="senha" class="form-label">Senha:</label>
+                        <input type="password" class="form-control" name="password" style="border: 1px solid black;">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 30%">Entrar</button>
+                </form>
+            </section>
+        </main>
+        <footer>
+
+        </footer>
+     <!-- Link js e bootstrap   -->
+   <script th:src="@{/bootstrap/js/bootstrap.bundle.min.js}"></script>
+   <script th:src="@{/js/app.js}"></script>
+    </body>
 </html>
 

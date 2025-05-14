@@ -1,13 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
-:root{
-    --cor-primaria: #ADB2D4;
-    --cor-secundaria:#C7D9DD;
-    --cor-terciaria:#C7D9DD;
-    --cor-hover: #272727;
-
-    --fonte-primaria: 'Krona One', sans-serif;
-    --fonte-secundaria: 'Montserrat', sans-serif;
-}
 
 *{
     margin: 0%;
@@ -21,6 +11,10 @@
     object-fit: cover;
     
 }
+body{
+   background-color: #f8f9fa; 
+}
+
 .login{
     font-size: 14px;
     font-family: var(--fonte-secundaria);
@@ -32,12 +26,41 @@
     display: flex;
     justify-content: center;
     
+    
 }
 .borde{
     border: 2px solid black;
     background-color: var(--cor-secundaria);
     width: 30%;
-    margin-top: 5%;
+    margin-top: 10%;
     border-radius: 5%;
+    background-color: rgb(176, 224, 243);
 
 }
+
+  .formulario{
+    margin-left: 10px; 
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px; 
+     background-color: #f8f9fa;
+  }
+  .formulario-container {
+    display: flex;
+    gap: 1px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 1px;
+  }
+
+  .form-container {
+    border: 1px solid #007bff;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #f8f9fa;
+    width: 300px;
+  }
+
+  .form-group {
+    margin-bottom: 10px;
+  }
