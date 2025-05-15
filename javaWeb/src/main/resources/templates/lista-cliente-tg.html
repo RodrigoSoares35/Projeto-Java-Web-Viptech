@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link css e bootstrap  -->
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <title>Lista de Clientes</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="@{/home}">Viptech Teleinfórmatica</a>
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link" th:href="@{/login}">Sair</a>
+              </li>
+            </ul>
+          </nav>
+          <br>
+    </header>
+    <main>
+     <h4 style="text-align: right; gap: 3px;"><button type="submit" class="btn btn-primary" style="width: 150px;">
+     <a class="nav-link" th:href="@{/cadastrarClienteTg}">Novo Cliente</a></button></h4>
+      <h4 class="formulario">Faça sua Busca:</h4>
+       <hr>
+      <div class="formulario-container">
+        <section class="formulario">
+          <form class="form-container">
+            <div class="form-group">
+              <label for="staticEmail2">🔎 Pesquisar</label>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword2">Contrato do Cliente:</label>
+              <input type="number" class="form-control" id="inputPassword2" placeholder="N° do Contrato ">
+            </div>
+            <div class="form-group text-center">
+              <button type="submit" class="btn btn-primary">Buscar</button>
+            </div>
+          </form>
+        </section>
+         <section class="formulario">
+            <form class="form-container">
+              <div class="form-group">
+                <label for="staticEmail3">Pesquisar🔎</label>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3">Número do Ramal:</label>
+                <input type="number" class="form-control" id="inputPassword3" placeholder="N° Ramal">
+              </div>
+              <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+              </div>
+            </form>
+          </section>
+           <section class="formulario">
+            <form class="form-container">
+              <div class="form-group">
+                <label for="staticEmail3">Pesquisar🔎</label>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3">Status:</label>
+                 <select class="form-select" aria-label="Default select example">
+                        <option selected>Selecione um Status</option>
+                        <option value="1">Ativo</option>
+                        <option value="2">Inativo</option>
+                   </select>
+              </div>
+              <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+              </div>
+            </form>
+          </section>
+       </div>
+       <hr>
+        <h4 class="formulario">Resultado da Busca:</h4>
+       <hr>
+        <h6 class="formulario">Resultado</h6>
+       <hr>
+       <h2 style="text-align: center;">Lista de Clientes 🧾</h2>
+       <section class="formulario">
+      <table class="table table-bordered border-black table-hover" style="text-align: center; "  >
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Empresarial</th>
+            <th scope="col">Contrato</th>
+            <th scope="col">Sala</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Ramal</th>
+            <th scope="col">Status</th>
+            <th scope="col">+Detalhes</th>
+            <th scope="col">Atualizar</th>
+          </tr>
+        </thead>
+           <tr th:each="tg : ${clienteTg}">
+                    <td th:text="${tg.id}"></td>
+                    <td th:text="${tg.empresarial}"></td>
+                    <td th:text="${tg.contrato}"></td>
+                    <td th:text="${tg.sala}"></td>
+                    <td th:text="${tg.cliente}"></td>
+                    <td th:text="${tg.ramal}"></td>
+                    <td th:text="${tg.status}"></td>
+                    <td><a th:href="@{/detalheThomasGrahamForm/{id}(id=${tg.id})}" class="btn btn-primary">🔍</a></td> 
+                    <td><a th:href="@{/atualizarThomasGrahamForm/{id}(id=${tg.id})}" class="btn btn-primary">✒</a></td>
+                </tr>
+      </table>
+    </section>
+    </main>
+    <footer>
+
+    </footer>
+    
+</body>
+</html>
