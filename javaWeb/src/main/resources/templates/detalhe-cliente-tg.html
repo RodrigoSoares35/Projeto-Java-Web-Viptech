@@ -22,61 +22,64 @@
         </ul>
     </nav>
     </header>
-    <main class="d-flex justify-content-center align-items-center" style="height: 50vh; margin-top: 20%;">
+    <main class="d-flex justify-content-center align-items-center" style="min-height: 100vh; margin-top: 20px;">
         <section>
-             <br>
-             <h1 style="text-align: center;">Informações do Cliente</h1>
+             <h1 class="text-center mb-4">Detalhes do Contrato</h1>
              <form style="width:600px;" th:action="@{/salvarClienteTg}" th:object="${tg}" method="post">
                   <div class="mb-3 ">
                         <label for="id" class="form-label"><b>ID:</b></label>
                         <input type="text" th:field="*{id}"class="form-control" id="ID" readonly>
                   </div>
                  <div class="mb-3">
-                    <label for="empresarial" class="form-label">Empresarial:</label>
-                    <select class="form-select" th:field="*{empresarial}" aria-label="Selecione um Empresarial" readonly>
-                        <option value="" selected>Selecione um Empresarial</option>
+                     <label for="empresarial" class="form-label"><b>Empresarial:</b></label>
+                    <select class="form-select" th:field="*{empresarial}" aria-label="Selecione" readonly>
+                        <option value="" selected>Selecione</option>
                         <option value="Thomas Edison">Thomas Edison</option>
                         <option value="Graham Bell">Graham Bell</option>
                    </select>
                 </div>
                 <div class="mb-3">
-                    <label for="contrato" class="form-label">Contrato:</label>
+                    <label for="contrato" class="form-label"><b>Contrato:</b></label>
                     <input type="number" th:field="*{contrato}" class="form-control" id="contrato" readonly>
                 </div>
                 <div class="mb-3">
-                    <label for="sala" class="form-label">Sala:</label>
+                    <label for="sala" class="form-label"><b>Sala:</b></label>
                     <input type="number" th:field="*{sala}" class="form-control" id="sala" readonly>
                 </div>
                 <div class="mb-3">
-                    <label for="cliente" class="form-label">Cliente:</label>
+                    <label for="cliente" class="form-label"><b>Cliente:</b></label>
                     <input type="text" th:field="*{cliente}" class="form-control" id="cliente" readonly>
                 </div>
-                <div class="mb-3">
-                    <label for="ramal" class="form-label">Ramal</label>
-                    <input type="number" th:field="*{ramal}" class="form-control" id="ramal" readonly>
-                </div>
-                <div class="mb-3">
-                    <label for="tipo" class="form-label">Tipo de Ramal:</label>
-                    <select class="form-select" th:field="*{tipo}" aria-label="Selecione um Tipo" readonly>
-                        <option value="" selected>Selecione um Tipo</option>
-                        <option value="Analogico">Analógico</option>
-                        <option value="Digital">Digital</option>
-                        <option value="IP">IP</option>
-                   </select>
-                </div>
-                <div class="mb-3">
-                    <label for="plano" class="form-label">Plano:</label>
-                    <select class="form-select" th:field="*{plano}" aria-label="Selecione um Plano" readonly>
-                        <option value="" selected>Selecione um Plano</option>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label for="ramal" class="form-label"><b>Ramal</b></label>
+                        <input type="number" th:field="*{ramal}" class="form-control" id="ramal" readonly>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="tipo" class="form-label"><b>Tipo de Ramal:</b></label>
+                        <input type="text" th:field="*{tipo}" class="form-control" id="tipo" readonly>
+                         <!--
+                        <select class="form-select" th:field="*{tipo}" aria-label="Selecione" readonly>
+                            <option value="" selected>Selecione</option>
+                            <option value="Analogico">Analógico</option>
+                            <option value="Digital">Digital</option>
+                            <option value="IP">IP</option>
+                        </select>
+                         -->
+                    </div>
+                     <div class="col md-4">
+                        <label for="plano" class="form-label"><b>Plano:</b></label>
+                        <select class="form-select" th:field="*{plano}" aria-label="Selecione" readonly>
+                        <option value="" selected>Selecione</option>
                         <option value="Interfone">Interfone</option>
                         <option value="DDR Ilimitado">DDR Ilimitado</option>
                         <option value="DDR Local">DDR Local</option>
                    </select>
                 </div>
                 <div class="mb-3">
-                    <label for="status" class="form-label">Status:</label>
-                    <select class="form-select" th:field="*{status}" aria-label="Selecione um status" readonly>
-                        <option value="" selected>Selecione um Status</option>
+                    <label for="status" class="form-label"><b>Status:</b></label>
+                    <select class="form-select" th:field="*{status}" aria-label="Selecione" readonly>
+                        <option value="" selected>Selecione</option>
                         <option value="Ativo">Ativo</option>
                         <option value="Bloqueado">Bloqueado</option>
                         <option value="Pendente">Pendente</option>
@@ -84,11 +87,11 @@
                    </select>
                 </div>
                 <div class="mb-3">
-                    <label for="dataInstalacao" class="form-label">Data Instalação</label>
+                    <label for="dataInstalacao" class="form-label"><b>Data Instalação</b></label>
                     <input type="date" th:field="*{dataInstalacao}" class="form-control" id="dataInstalacao" readonly>
                 </div>
                 <div class="mb-3">
-                    <label for="observacao" class="form-label">Observação</label>
+                    <label for="observacao" class="form-label"><b>Observação</b></label>
                     <textarea class="form-control" th:field="*{observacao}" id="observacao" rows="3" readonly></textarea>
                 </div>
             </form>
