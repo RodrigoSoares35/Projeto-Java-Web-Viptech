@@ -49,23 +49,19 @@ public class ThomasGrahamService {
     return tgRepository.findAll();
 
     }
-      //Pesquisar por ID
-      public ThomasGraham getThomasGrahamByContrato(String tgcontrato) {
-      return tgRepository.findByContrato(tgcontrato);
-    }
-      
      public ThomasGraham getThomasGrahamId(Integer tgId) {
 
      return tgRepository.findById(tgId).orElseThrow(()
      -> new ResourceNotFoundException("Usuario não encontrado " + tgId));
 
     }
+      
       public List<ThomasGraham> getTodosThomasGraham() {
         return tgRepository.findAll();
     }
-      
-    
-      
+   public List<ThomasGraham> buscarPorContrato(String contrato) {
+        return tgRepository.findByContratoContaining(contrato);
+    }
       
       /*  FUNÇÃO BUSCAR ID
       FUNÇÃO DELETAR INATIVA

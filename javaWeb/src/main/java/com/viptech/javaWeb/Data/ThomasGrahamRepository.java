@@ -7,5 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ThomasGrahamRepository extends JpaRepository<ThomasGraham,Integer>{
-    ThomasGraham findByContrato(String contrato);
+     
+      List<ThomasGraham> findByContratoContaining(String contrato);
+
 }

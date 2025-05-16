@@ -4,6 +4,8 @@ package com.viptech.javaWeb.Controller;
 import com.viptech.javaWeb.Data.ThomasGraham;
 import com.viptech.javaWeb.Service.ThomasGrahamService;
 import jakarta.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -75,4 +77,15 @@ public class tgController {
     return "/listaUsuario"; 
 }
 */
+     @GetMapping("/pesquisarTg")
+    public String pesquisarTg(@RequestParam(required = false) String contrato, Model model) {
+        List<ThomasGraham> resultados = new ArrayList<>();
+
+        if (contrato != null && !contrato.isEmpty()) {
+            resultados = tgService.buscarPorContrato(contrato);
+        }
+
+        model.addAttribute("resultados", resultados);
+        return "lista-cliente-tg";
+    }
 }
