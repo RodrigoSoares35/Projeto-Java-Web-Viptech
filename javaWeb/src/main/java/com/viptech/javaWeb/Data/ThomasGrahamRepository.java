@@ -9,5 +9,7 @@ import org.springframework.stereotype.Repository;
 public interface ThomasGrahamRepository extends JpaRepository<ThomasGraham,Integer>{
      
       List<ThomasGraham> findByContratoContaining(String contrato);
+      List<ThomasGraham> findByRamalContaining(String ramal);
+      List<ThomasGraham> findByStatusContaining(String status);
 
 }

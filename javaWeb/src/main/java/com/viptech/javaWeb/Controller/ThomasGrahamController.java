@@ -36,26 +36,6 @@ public class ThomasGrahamController {
 
     }
     
-    /*
-    @GetMapping("/pesquisarUsuario/{id}")
-
-    public ResponseEntity<ThomasGraham> getThomasGrahamById(@PathVariable Integer id) {
-
-        ThomasGraham tg = tgService.getThomasGrahamId(id);
-
-        return new ResponseEntity<>(tg, HttpStatus.OK);
-
-    }
-   
-    @GetMapping("/pesquisarTg/{contrato}")
-    
-    public ResponseEntity<ThomasGraham> getThomasGrahamByContrato(@PathVariable String contrato) {
-        
-    ThomasGraham tg = tgService.getThomasGrahamByContrato(contrato);
-    
-    return new ResponseEntity<>(tg, HttpStatus.OK);
-}
-  */
     @PostMapping("/adicionarTg")
 
     public ResponseEntity<ThomasGraham> addThomasGraham(@Valid @RequestBody ThomasGraham tg) {

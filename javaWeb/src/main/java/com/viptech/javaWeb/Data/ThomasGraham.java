@@ -24,8 +24,9 @@ public class ThomasGraham {
     private String ramal;
     private String tipo;
     private String plano;
-    private String Status;
+    private String status;
     private String dataInstalacao;
+    private String dataCancelamento;
     private String observacao;
     
 }

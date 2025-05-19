@@ -40,6 +40,8 @@ public class ThomasGrahamService {
         
         tg.setDataInstalacao(tgRequest.getDataInstalacao());
         
+         tg.setDataCancelamento(tgRequest.getDataCancelamento());
+        
         tg.setObservacao(tgRequest.getObservacao());
         
         return tgRepository.save(tg);
@@ -52,7 +54,7 @@ public class ThomasGrahamService {
      public ThomasGraham getThomasGrahamId(Integer tgId) {
 
      return tgRepository.findById(tgId).orElseThrow(()
-     -> new ResourceNotFoundException("Usuario não encontrado " + tgId));
+     -> new ResourceNotFoundException("" + tgId));
 
     }
       
@@ -62,16 +64,10 @@ public class ThomasGrahamService {
    public List<ThomasGraham> buscarPorContrato(String contrato) {
         return tgRepository.findByContratoContaining(contrato);
     }
-      
-      /*  FUNÇÃO BUSCAR ID
-      FUNÇÃO DELETAR INATIVA
-       public void deletarThomasGraham(Integer tgId) {
-
-        ThomasGraham tg = getThomasGrahamId(tgId);
-
-        tgRepository.deleteById(tg.getId());
-
+    public List<ThomasGraham> buscarPorRamal(String ramal) {
+        return tgRepository.findByRamalContaining(ramal);
     }
-    */
-    
+      public List<ThomasGraham> buscarPorStatus(String status) {
+        return tgRepository.findByStatusContaining(status);
+    }
 }

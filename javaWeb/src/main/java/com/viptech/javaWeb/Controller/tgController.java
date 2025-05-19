@@ -73,15 +73,7 @@ public class tgController {
         return "detalhe-cliente-tg";
     }
    
-    /*
-   @GetMapping("/pesquisarUsuario")
-    public String pesquisarUsuario(@RequestParam("id") Integer id, Model model) {
-    Usuario usuario = usuarioService.getUsuarioId(id);
-    model.addAttribute("usuario", usuario);
-    return "/listaUsuario"; 
-}
-*/
-     @GetMapping("/pesquisarTg")
+     @GetMapping("/pesquisarContratoTg")
     public String pesquisarTg(@RequestParam(required = false) String contrato, Model model) {
         List<ThomasGraham> resultados = new ArrayList<>();
 
@@ -90,6 +82,28 @@ public class tgController {
         }
 
         model.addAttribute("resultados", resultados);
+        return "buscar-cliente-tg";
+    }
+    @GetMapping("/pesquisarRamalTg")
+    public String pesquisarRamalTg(@RequestParam(required = false) String ramal, Model model) {
+        List<ThomasGraham> resultadoRamal = new ArrayList<>();
+
+        if (ramal != null && !ramal.isEmpty()) {
+            resultadoRamal = tgService.buscarPorRamal(ramal);
+        }
+
+        model.addAttribute("resultadoRamal", resultadoRamal);
+        return "buscar-cliente-tg";
+    }
+    @GetMapping("/pesquisarStatusTg")
+    public String pesquisarStatusTg(@RequestParam(required = false) String status, Model model) {
+        List<ThomasGraham> resultadoStatus = new ArrayList<>();
+
+        if (status != null && !status.isEmpty()) {
+            resultadoStatus = tgService.buscarPorStatus(status);
+        }
+
+        model.addAttribute("resultadoStatus", resultadoStatus);
         return "buscar-cliente-tg";
     }
 }
