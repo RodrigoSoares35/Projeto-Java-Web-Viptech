@@ -27,6 +27,10 @@ public class tgController {
         model.addAttribute("clienteTg", tgService.listarTodosThomasGraham());
         return "lista-cliente-tg";
     }
+     @GetMapping("/buscar-cliente-tg")
+    public String buscarClienteTg(){
+        return "buscar-cliente-tg";
+    }
     @GetMapping("/cadastrarClienteTg")
     public String mostrarFormularioTg(Model model) {
         model.addAttribute("tg", new ThomasGraham());
@@ -86,6 +90,6 @@ public class tgController {
         }
 
         model.addAttribute("resultados", resultados);
-        return "lista-cliente-tg";
+        return "buscar-cliente-tg";
     }
 }

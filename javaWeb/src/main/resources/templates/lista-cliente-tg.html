@@ -18,7 +18,10 @@
               <li class="nav-item">
                  <a class="nav-link" th:href="@{/cadastrarClienteTg}">Novo Cliente 👨</a>
               </li>
-                <li class="nav-item">
+              <li class="nav-item">
+                 <a class="nav-link" th:href="@{/buscar-cliente-tg}">Buscar🔎</a>
+              </li>
+               <li class="nav-item">
                  <a class="nav-link" th:href="@{/login}">Sair</a>
               </li>
             </ul>
@@ -26,41 +29,8 @@
           <br>
     </header>
     <main>
-      <h4 class="formulario">Faça sua Busca:</h4>
-       <hr>
-     <form action="/pesquisarTg" method="get">
-       <input type="text" name="contrato" placeholder="Digite o contrato" required>
-       <button type="submit">Buscar</button>
-     </form>
-    <div th:if="${resultados != null and !resultados.isEmpty()}">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Empresarial</th>
-            <th>Contrato</th>
-            <th>Sala</th>
-            <th>Cliente</th>
-          </tr>
-        </thead>
-        <tbody>
-             
-          <tr th:each="tg : ${resultados}">
-            <td th:text="${tg.id}"></td>
-            <td th:text="${tg.empresarial}"></td>
-            <td th:text="${tg.contrato}"></td>
-            <td th:text="${tg.sala}"></td>
-            <td th:text="${tg.cliente}"></td>
-          </tr>
-         
-        </tbody>
-      </table>
-    </div>
-    <div th:if="${resultados != null and resultados.isEmpty()}">
-    <p>Nenhum resultado encontrado.</p>
-    </div>
-
        <h2 style="text-align: center;"> 🧾 Lista de Clientes</h2>
+       <br>
        <section class="formulario">
       <table class="table table-bordered border-black table-hover" style="text-align: center; "  >
         <thead>

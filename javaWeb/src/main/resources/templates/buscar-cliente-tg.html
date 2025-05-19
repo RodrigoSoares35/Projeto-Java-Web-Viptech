@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Buscar</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Link css e bootstrap  -->
+        <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="@{/home}">Viptech Teleinfórmatica</a>
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link" th:href="@{/cadastrarClienteTg}">Novo Cliente 👨</a>
+              </li>
+                <li class="nav-item">
+                 <a class="nav-link" th:href="@{/login}">Sair</a>
+              </li>
+            </ul>
+          </nav>
+          <br>
+        </header>
+        <main>
+            <h3 style="text-align: center">Faça sua Busca:</h3>
+             <br>
+          <div class="row mb-3">
+              <div class="col-md-4">
+                <form class="form-container" action="/pesquisarTg" method="get">
+                    <div class="form-group">
+                    <label for="contrato">Número do Contrato: </label>
+                    <input type="text" name="contrato" class="form-control" id="contrato" placeholder="N° Contrato" required>
+                    </div>
+                    <div class="form-group text-center">
+                       <button type="submit" class="btn btn-primary">Buscar</button>  
+                    </div>
+                </form>
+            </div>
+              <div class="col-md-4">
+                <form class="form-container" action="/pesquisarTg" method="get">
+                    <div class="form-group">
+                    <label for="contrato">Número do Ramal: </label>
+                    <input type="text" name="contrato" class="form-control" id="contrato" placeholder="N° Ramal" required>
+                    </div>
+                    <div class="form-group text-center">
+                       <button type="submit" class="btn btn-primary">Buscar</button>  
+                    </div>
+                </form>
+            </div>
+              <div class="col-md-4">
+                <form class="form-container" action="/pesquisarTg" method="get">
+                    <div class="form-group">
+                    <label for="contrato">Status do Contrato: </label>
+                    <input type="text" name="contrato" class="form-control" id="contrato" placeholder="Status" required>
+                    </div>
+                    <div class="form-group text-center">
+                       <button type="submit" class="btn btn-primary">Buscar</button>  
+                    </div>
+                </form>
+            </div>
+         </div> 
+            <section class="formulario">
+               <div th:if="${resultados != null and !resultados.isEmpty()}">
+                 <table class="table table-bordered border-black table-hover" style="text-align: center;">
+                   <thead>
+                     <tr>
+                       <th scope="col">ID</th>
+                       <th scope="col">Empresarial</th>
+                       <th scope="col">Contrato</th>
+                        <th scope="col">Cliente</th>
+                       <th scope="col">Status</th>
+                       <th scope="col">+Detalhes</th>
+                       <th scope="col">Atualizar</th>
+                     </tr>
+                   </thead>
+                   <tbody>
+                     <tr th:each="tg : ${resultados}">
+                       <td th:text="${tg.id}"></td>
+                       <td th:text="${tg.empresarial}"></td>
+                       <td th:text="${tg.contrato}"></td>
+                        <td th:text="${tg.cliente}"></td>
+                       <td th:text="${tg.status}"></td>
+                       <td><a th:href="@{/detalheThomasGrahamForm/{id}(id=${tg.id})}">🔍</a></td> 
+                      <td><a th:href="@{/atualizarThomasGrahamForm/{id}(id=${tg.id})}">✏</a></td>
+                     </tr>
+                   </tbody>
+                 </table>
+               </div>
+             </section>
+    <div th:if="${resultados != null and resultados.isEmpty()}">
+    <p>Nenhum resultado encontrado.</p>
+    </div>
+        </main>
+        <footer>
+            
+        </footer>
+    </body>
+</html>
